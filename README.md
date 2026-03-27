@@ -1,20 +1,56 @@
-# Yherda Boss Vault
+# Yherda Boss
 
-Local belief system design environment — Yherda stand-in until the platform is live.
+A belief-driven AI workspace bootstrap. Sets up your working model locally with Claude — ceremonies, roles, team agreements, and skills — with a migration path to Yherda when you're ready to collaborate.
+
+---
+
+## Agent entry point
+
+`bootstrap-prompts/bootstrap.md`
+
+Tell your agent: **"Read the README and follow the agent entry point."**
+
+That's it. The bootstrap handles everything from there.
+
+---
+
+## What this does
+
+Yherda Boss walks you through a structured setup conversation with Claude. By the end you have:
+
+- A working model of how you operate — roles, beliefs, ceremonies, team agreements
+- A set of skills Claude can invoke to support your workflow
+- A cadence for standup, planning, grooming, review, and retro
+- A migration path to Yherda when you're ready to collaborate with others
+
+The vault works as-is for solo operation. Yherda adds value when you have a team.
+
+---
+
+## What you need
+
+- Claude (claude.ai or Claude Code)
+- This repo cloned locally
+- Optionally: Obsidian for browsing the belief systems
+
+---
 
 ## Structure
 
-- `belief-systems/` — compressed belief system artifacts; each file is a canonical belief system
-- `workspaces/` — decompressed working files; iterative design space before compression
-- `bootstrap-prompts/` — final bootstrap prompts derived from belief systems; what users receive
+```
+belief-systems/
+  yherda/        ← platform and expression belief systems
+  agile/         ← agile beliefs and process arc templates
+  retro.md       ← working retro log; starts blank
+bootstrap-prompts/
+  bootstrap.md   ← agent entry point
+  story/         ← bootstrap arc story; characters, identities, arcs, beats
+```
 
-## The Pattern
+---
 
-1. Decompress ideas into `workspaces/`
-2. Compress into a belief system in `belief-systems/`
-3. Derive bootstrap prompt in `bootstrap-prompts/`
-4. User pastes prompt → Claude reads it → context is set
+## Community
 
-## Migration
+Discussions are open. If you find a belief that doesn't hold, a process that needs a beat, or a pattern worth sharing — that's what the discussion board is for.
 
-When Yherda is ready, belief system files migrate there. Bootstrap prompts update to point at Yherda. User experience is continuous.
+Belief systems and process templates are community-maintained. Extensions developed in your workspace can be contributed back via PR once they're stable.
