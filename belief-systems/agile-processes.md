@@ -36,6 +36,9 @@ A belief that holds in one team's context and is likely to hold in others is a s
 ### 6. Skill regeneration follows belief integration
 When a retro integrates a new belief, the yherder determines which skills are affected and which need to be re-expressed. Not all belief changes require skill updates — only those where the change affects how the agent reasons in that domain.
 
+### 7. Process extensions are introduced through retro, not by editing base templates
+The base process arcs in `processes/` are community-maintained templates. A team that wants to extend a process — adding an email flag input to planning, for example — does so by adding a beat to their local copy of the arc, not by modifying the base template. The extension is a retro output: belief specified, evidence criteria defined, local arc updated. If the extension is a scrum of scrums candidate, it is nominated for the community base template via PR. This keeps the base templates stable and the community learning visible.
+
 ---
 
 ## Ceremony Process Map
