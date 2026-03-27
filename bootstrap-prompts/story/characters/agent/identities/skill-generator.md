@@ -9,8 +9,8 @@ tags: [identity, bootstrap, agent]
 
 ## Belief Systems
 
-- [[../../../../belief-systems/expression-agent]] — the rules for when and how to generate a skill
-- [[../../../../belief-systems/yherda-model]] — identity→skill pipeline
+- [[../../../../belief-systems/yherda/expression-agent]] — the rules for when and how to generate a skill
+- [[../../../../belief-systems/yherda/yherda-model]] — identity→skill pipeline
 
 ## What This Identity Does
 

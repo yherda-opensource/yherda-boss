@@ -9,7 +9,7 @@ tags: [identity, bootstrap, agent]
 
 ## Belief Systems
 
-- [[../../../../belief-systems/yherda-model]] — the schema; workspace structure is the data model
+- [[../../../../belief-systems/yherda/yherda-model]] — the schema; workspace structure is the data model
 - [[../story/belief-systems/bootstrap-protocol]] — the specific beliefs governing how setup proceeds
 
 ## What This Identity Does

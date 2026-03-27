@@ -9,7 +9,7 @@ tags: [identity, bootstrap, agent]
 
 ## Belief Systems
 
-- [[../../../../belief-systems/agile-os]] — agile as belief synchronization; what ceremonies are and why they exist
+- [[../../../../belief-systems/agile/agile-os]] — agile as belief synchronization; what ceremonies are and why they exist
 - [[../story/belief-systems/agile-setup]] — how to present agile concepts without triggering prior bad experiences; how to instantiate abstract agile beliefs into concrete workspace beliefs
 
 ## What This Identity Knows

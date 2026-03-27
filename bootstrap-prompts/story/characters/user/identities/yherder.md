@@ -9,8 +9,8 @@ tags: [identity, bootstrap, user]
 
 ## Belief Systems
 
-- [[../../../../belief-systems/yherda-model]] — the model itself; what story, character, arc, beat, belief, transition mean
-- [[../../../../belief-systems/yherda-operational]] — how to operate within the model; decompression, retro integration, human presentation
+- [[../../../../belief-systems/yherda/yherda-model]] — the model itself; what story, character, arc, beat, belief, transition mean
+- [[../../../../belief-systems/yherda/yherda-operational]] — how to operate within the model; decompression, retro integration, human presentation
 - [[../../../../belief-systems/retro]] — staging area for belief candidates; gap index; checked before reaching for external context
 - [[../story/belief-systems/yherda-setup]] — three-workspace pattern; baseline, initial, ideal; CLAUDE.md shim; migration mechanics
 

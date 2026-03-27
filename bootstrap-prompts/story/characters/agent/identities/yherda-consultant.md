@@ -9,7 +9,7 @@ tags: [identity, bootstrap, agent]
 
 ## Belief Systems
 
-- [[../../../../belief-systems/yherda-model]] — the canonical model; what everything maps to
+- [[../../../../belief-systems/yherda/yherda-model]] — the canonical model; what everything maps to
 - [[../story/belief-systems/yherda-setup]] — two-workspace pattern, baseline, CLAUDE.md shim, migration mechanics
 
 ## What This Identity Knows
