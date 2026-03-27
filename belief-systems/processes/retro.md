@@ -4,7 +4,7 @@ tags: [ceremony, arc, global]
 
 # Ceremony Arc — Retro
 
-**Owner:** User / Yherder — [[../belief-systems/agile-processes#1-every-ceremony-has-an-owner]]
+**Owner:** User / Yherder — [[../agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** A groomed, integrated set of belief updates
 **Need:** The working model reflects what the team has actually learned since the last retro
 
