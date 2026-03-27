@@ -39,5 +39,8 @@ The folder structure is the Yherda data model. If the workspace is built true to
 ### 7. Bootstrap dissolves when complete
 The bootstrap story is ephemeral. It constructs the workspace, wires the pointer, then clears. The workspace is permanent. The bootstrap is scaffolding.
 
-### 8. Large setups require decomposition and subagents
+### 8. Install first, modify through retro
+The bootstrap installs base belief systems as-is — no adaptation during setup. Beliefs that don't fit are flagged as retro candidates, not changed in place. This preserves the community baseline and creates a clean audit trail: everything that diverges from the base is a deliberate retro output with a reason, not an undocumented installation-time edit. The gap between the base and your workspace is always explainable.
+
+### 9. Large setups require decomposition and subagents
 The context window is a finite resource. A complex existing configuration — deep CLAUDE.md, many memory files, existing belief systems, prior workspaces — cannot be ingested in a single pass without crowding out the arcs that follow. When the scope of a beat exceeds what can be held cleanly in context, decompose: break the work into slices, use subagents to process each slice independently, and compress the results before continuing. The installer never accumulates raw content — it compresses as it goes. Discovery at scale is a multi-step operation, not a single read.

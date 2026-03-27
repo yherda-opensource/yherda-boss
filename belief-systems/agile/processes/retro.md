@@ -95,7 +95,17 @@ Present a summary of all belief changes from this retro — new beliefs introduc
 
 ---
 
-## Beat R7 — Update the Yherder
+## Beat R7 — Append to Retro Activity Log
+*Active identity: Scrum Master*
+
+For every belief transition produced this retro, append an entry to `retro_activity_log.md` in the workspace. This is the audit trail — append only, never edit existing entries.
+
+**Belief transitions:**
+- *"Every belief transition from this retro is recorded in the activity log"* — introduced as `active`
+
+---
+
+## Beat R8 — Update the Yherder
 *Active identity: Scrum Master*
 
 Update the yherder registry with any new belief systems, identity changes, or priority shifts that resulted from this retro.
