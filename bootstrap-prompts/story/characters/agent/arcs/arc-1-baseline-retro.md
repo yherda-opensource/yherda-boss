@@ -10,20 +10,45 @@ tags: [arc, bootstrap, agent]
 
 ---
 
-## Beat 1a — Scan
+## Beat 1a — Scan Global Config
 *Active identity: [[../identities/installer]]*
 
-Scan the user's environment:
+Scan the user's global environment only:
 - `~/.claude/CLAUDE.md` — extract beliefs, rules, working agreements
 - `~/.claude/projects/` memory files — extract named beliefs and patterns
 - Any existing workspace or belief system files the user points to
 
+Do not scan project-specific CLAUDE.md files yet — those come in Beat 1a2. Keep global and project-level config separate throughout.
+
 If scope is large, decompose: map what exists first, read selectively based on user direction. Use subagents for large configs — compress results before continuing.
 
-Organize findings as a retro belief list: one belief per item, source noted, all starting as candidate status pending retro.
+Organize global findings as a retro belief list: one belief per item, source noted, all starting as candidate status pending retro.
 
 **Belief transitions:**
-- *"I have a candidate belief set from this user's existing config"* — introduced as `emerging` (found something) or `strained` (found nothing; starting fresh)
+- *"I have a candidate belief set from this user's global config"* — introduced as `emerging` (found something) or `strained` (found nothing; starting fresh)
+
+---
+
+## Beat 1a2 — Scan Project Config
+*Active identity: [[../identities/installer]]*
+
+Scan project-specific CLAUDE.md files under the user's code directories. Group findings by project — do not flatten into the global list.
+
+For each project: extract beliefs, rules, and working patterns that appear to be in force. Note which beliefs appear across multiple projects.
+
+Present a summary grouped by project:
+
+> "I found project-specific config in {N} projects. Here's what each one appears to believe:
+>
+> **{project-name}:** {belief summary}
+> ..."
+>
+> "Some beliefs appear across multiple projects: {list}. Do you want to promote any of these to your common workspace? And are there projects different enough from each other that they'd warrant separate workspace contexts?"
+
+User responds — promoted beliefs carry forward into the workspace retro; project-specific beliefs stay scoped to that project and are noted as tasks if they need workspace treatment later.
+
+**Belief transitions:**
+- *"I understand which beliefs are common across my work and which are project-specific"* — introduced as `emerging`; `active` once user confirms what promotes
 
 ---
 

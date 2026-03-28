@@ -40,6 +40,30 @@ A skill named after a task ("write-email") is a heuristic. A skill named after a
 ### 6. Skills compound through community calibration
 A skill generated from a local belief system is useful to one person. A skill validated through community retro and contributed back is useful to everyone with the same gap. The community belief system repo is the mechanism.
 
+### 7. Belief system first — skill generation is the final step
+Domain knowledge captured during a session must land in a belief system file before a skill is generated. A skill that encodes knowledge not present in any belief system is a belief gap, not a valid skill — the gap just moved into the skill where it can't be updated through retro. The sequence is: discover beliefs → write belief system → generate skill as expression of that belief system.
+
+### 8. A skill lives in its own named folder
+Skills are stored at `~/.claude/skills/{skill-name}/SKILL.md`. The folder name is the invocation name. The entry point file is always `SKILL.md`. A skill file placed directly in the skills root (e.g. `~/.claude/skills/{skill-name}.md`) is malformed — it cannot be correctly loaded or updated.
+
+### 9. Claude Code hooks use JSON output, not plain text
+When generating a PreToolUse hook script, the script must output a JSON object to stdout and exit 0 to block. The correct structure is:
+
+```bash
+#!/bin/bash
+if [ {condition} ]; then
+  jq -n '{
+    hookSpecificOutput: {
+      hookEventName: "PreToolUse",
+      permissionDecision: "deny",
+      permissionDecisionReason: "{message shown to Claude}"
+    }
+  }'
+fi
+```
+
+Plain text output or non-zero exit codes do not produce a block. Hook scripts are registered in `~/.claude/settings.json` under `hooks.PreToolUse` as `{"matcher": "{regex}", "hooks": [{"type": "command", "command": "{path}"}]}`. Use `$HOME` not `~` in the command path.
+
 ---
 
 ## Builds On
