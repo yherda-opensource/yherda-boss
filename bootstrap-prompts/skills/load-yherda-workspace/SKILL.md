@@ -53,6 +53,20 @@ Confirm:
 
 ---
 
+## Context priority for this session
+
+Once a workspace is loaded, follow this lookup order before answering any question or taking any action:
+
+1. **What the user just said** — their current message, intent, and any explicit context they've provided. This always comes first.
+2. **Active workspace belief systems** — reason from the belief systems loaded from the workspace. If a belief system covers the domain, use it. Do not substitute training data when a belief exists.
+3. **Retro log** (`retro_log.md` in the active workspace) — before reaching for training data or external sources, check the retro queue. A pending candidate may already capture the decision. If so, surface it: "We haven't formally decided on this yet — want to work with the candidate or retro on it first?"
+4. **Training data / general knowledge** — only when none of the above has an answer.
+5. **Internet / external sources** — only when training data is also insufficient, and only when the user has not indicated the answer should come from the workspace model.
+
+The workspace model exists so that reasoning stays grounded in what this user actually believes — not in what Claude would default to. Defaulting past the belief systems to training data is a context leak. The retro queue is the last internal check before that happens.
+
+---
+
 ## Session hooks (optional setup)
 
 For automatic workspace prompting, add to `~/.claude/settings.json`:
