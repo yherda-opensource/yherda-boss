@@ -70,6 +70,30 @@ Each candidate entry follows this structure:
 **Evidence so far:** Arc 5 role discovery — skill-generator suggestions only unblock when user stalls or names something too broad to decompose; never offered proactively.
 **Note:** This belief is targeted for yherda-model, not just yherda-operational — it's a foundational claim about how arcs work, not just how the bootstrap runs.
 
+### Discovery skips project-level CLAUDE.md files
+
+**Suggested belief system:** bootstrap-protocol
+**Identities affected:** installer
+**Flagged by:** user
+**Flagged during:** first live install 2026-03-28
+**Suggested status:** emerging
+**Context:** During discovery, the installer scanned project-specific CLAUDE.md files. Project config is scoped to one repo — paths, commands, integration-test specifics — and was never meant to generalize. Including it risks polluting the workspace model with one-off configuration. Discovery should read global CLAUDE.md and workspace-level docs only; anything workspace-belief-worthy in a project config should be surfaced by the user, not inferred by the installer.
+**Evidence so far:** First live install — project config produced noise, not signal, during discovery.
+
+---
+
+### Plugin/tool enumeration is deferred until the workspace model exists
+
+**Suggested belief system:** bootstrap-protocol
+**Identities affected:** installer
+**Flagged by:** user
+**Flagged during:** first live install 2026-03-28
+**Suggested status:** emerging
+**Context:** On a fresh install, the installer listed all available plugins/tools and asked the user to respond. At that point the user has no context to answer — the workspace model doesn't exist yet and the question is meaningless noise. Plugin discovery belongs later in the bootstrap, or not at all in the base arc. Default behavior should be to skip enumeration; the user adds plugins through retro as they surface naturally.
+**Evidence so far:** Fresh install produced ~6 plugin candidates the user couldn't evaluate without a working model first.
+
+---
+
 ### Evidence accumulation is a first-class integration pattern for belief development
 
 **Suggested belief system:** yherda-operational
