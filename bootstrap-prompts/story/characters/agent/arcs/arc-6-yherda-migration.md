@@ -4,7 +4,7 @@ tags: [arc, bootstrap, agent]
 
 # Arc 6 — Yherda Migration
 
-**Owner:** Agent / Installer — [[../../../../belief-systems/retro#the-arc-owner-leads]]
+**Owner:** Agent / Installer — [[../../../../belief-systems/agile/agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** The working model transferred to Yherda
 **Need:** The user understands what Yherda adds and has chosen the right account structure before migration begins — fidelity validated, nothing dropped
 

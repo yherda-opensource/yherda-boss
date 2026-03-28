@@ -4,7 +4,7 @@ tags: [arc, bootstrap, agent]
 
 # Arc 1 — Baseline Retro
 
-**Owner:** Agent / Installer — [[../../../../belief-systems/retro#the-arc-owner-leads]]
+**Owner:** Agent / Installer — [[../../../../belief-systems/agile/agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** An honest snapshot of where the user actually is
 **Need:** Every existing belief retro'd to its true status before anything new is built on top of it
 

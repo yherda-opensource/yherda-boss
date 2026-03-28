@@ -4,7 +4,7 @@ tags: [arc, bootstrap, user]
 
 # Arc 4 — Team Agreement Setup
 
-**Owner:** User / Coordinator — [[../../../../belief-systems/retro#the-arc-owner-leads]]
+**Owner:** User / Coordinator — [[../../../../belief-systems/agile/agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** A shared understanding of what "ready" and "done" mean for this team
 **Need:** DoR and DoD beliefs grounded in how this team actually works — confirmed, not inherited
 

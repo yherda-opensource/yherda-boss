@@ -4,7 +4,7 @@ tags: [arc, bootstrap, user]
 
 # Arc 5 — Role & Belief Discovery
 
-**Owner:** User / Analyst — [[../../../../belief-systems/retro#the-arc-owner-leads]]
+**Owner:** User / Analyst — [[../../../../belief-systems/agile/agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** A complete identity map for this user
 **Need:** The user's roles named, their governing beliefs surfaced, and the right consolidation/splitting decided
 
