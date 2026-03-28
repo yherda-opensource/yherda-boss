@@ -4,7 +4,7 @@ tags: [arc, bootstrap, user]
 
 # Arc 2 — Work Management Setup
 
-**Owner:** User / Coordinator — [[../../../../belief-systems/retro#the-arc-owner-leads]]
+**Owner:** User / Coordinator — [[../../../../belief-systems/agile/agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** A wired place to store and track work
 **Need:** The agent knows where tasks live and can read and write them reliably
 

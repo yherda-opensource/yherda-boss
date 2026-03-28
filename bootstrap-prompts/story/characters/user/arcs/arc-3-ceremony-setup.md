@@ -4,7 +4,7 @@ tags: [arc, bootstrap, user]
 
 # Arc 3 — Ceremony Setup
 
-**Owner:** User / Coordinator — [[../../../../belief-systems/retro#the-arc-owner-leads]]
+**Owner:** User / Coordinator — [[../../../../belief-systems/agile/agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** A defined cadence for agile ceremonies
 **Need:** The ambiguity left by agile-os resolved for this specific situation — ceremonies with concrete timing
 

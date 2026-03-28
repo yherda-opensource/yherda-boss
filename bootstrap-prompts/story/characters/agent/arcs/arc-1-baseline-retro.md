@@ -4,7 +4,7 @@ tags: [arc, bootstrap, agent]
 
 # Arc 1 — Baseline Retro
 
-**Owner:** Agent / Installer — [[../../../../belief-systems/retro#the-arc-owner-leads]]
+**Owner:** Agent / Installer — [[../../../../belief-systems/agile/agile-processes#1-every-ceremony-has-an-owner]]
 **Want:** An honest snapshot of where the user actually is
 **Need:** Every existing belief retro'd to its true status before anything new is built on top of it
 
@@ -104,14 +104,61 @@ Review the retro'd baseline together. Identify which beliefs carry forward:
 
 ---
 
-## Beat 1g — Create Workspaces
+## Beat 1g — Create Workspace Structure
 *Active identity: [[../identities/installer]]*
 
-Create two new workspaces with yherda-model and agile-os imported as foundation belief systems:
-- **{name}-yherda-boss-initial/** — carries forward `active`, `emerging`, and `strained` beliefs from baseline
-- **{name}-yherda-boss-ideal/** — carries forward `active` and `emerging` beliefs only; starts clean of strained adaptations
+Create both workspaces at:
+- `~/.claude/yherda/{name}-initial/` — carries forward `active`, `emerging`, and `strained` beliefs from baseline
+- `~/.claude/yherda/{name}-ideal/` — carries forward `active` and `emerging` beliefs only
 
-Arc 1 complete. Arc 2 begins in the initial workspace.
+In each workspace, copy the full belief system packages from the vault:
+- `belief-systems/yherda/` — yherda-model, yherda-operational, expression, expression-human, expression-agent, yherda-migration; processes/yherda-update
+- `belief-systems/agile/` — agile-manifesto, agile-os, agile-workflow, agile-processes; processes/standup, planning, grooming, review, retro, sos
+
+Also copy templates from `bootstrap-prompts/templates/` into each workspace:
+- `retro_log.md`, `retro_activity_log.md`, `tasks.md`
 
 **Belief transitions:**
-- *"I have a belief architecture to build on"* — introduced as `emerging`; will earn `active` status through use
+- *"The workspace file structure exists"* — introduced as `active`
+
+---
+
+## Beat 1h — Adopt Agile Beliefs
+*Active identities: [[../identities/agile-consultant]] · [[../../user/identities/yherder]]*
+
+Present the full agile belief systems as a summary — agile-manifesto, agile-os, agile-workflow, agile-processes — covering what each contains and what it means to hold these beliefs.
+
+For the **ideal workspace**: adopt silently. No retro needed — the ideal is the clean version.
+
+For the **initial workspace**: run a mass retro. Present all agile beliefs as a single set:
+
+> "Here are the agile beliefs I'm proposing for your working context. Any you want to push back on, modify, or hold more lightly? We can adjust the whole set at once — you don't need to go belief by belief."
+
+User responds with any exceptions or modifications. Uncontested beliefs arrive as `emerging` (not yet tested in this context). Beliefs the user confirms from experience arrive as `active`.
+
+**Belief transitions:**
+- *"The agile belief foundation is established in this workspace"* — introduced as `active` in ideal; `emerging` in initial (earning `active` through use)
+
+---
+
+## Beat 1i — Install Agent Character
+*Active identity: [[../identities/installer]]*
+
+Create an agent character in both workspaces using the agile character template. Install two identities:
+
+**Scrum Master** — ceremony orchestrator and belief guardian
+- Belief systems: agile-processes, agile-workflow, agile-os
+- Owner of: standup arc, retro arc
+
+**Agile Consultant** — planning and delivery advisor
+- Belief systems: agile-processes, agile-workflow, agile-os, agile-manifesto
+- Owner of: planning arc, grooming arc, review arc
+
+Copy all process arcs from `belief-systems/agile/processes/` into `characters/agent/arcs/` in each workspace.
+
+**Belief transitions:**
+- *"The agent has the identities needed to run ceremonies"* — introduced as `active`
+
+---
+
+Arc 1 complete. Arcs 2–5 run in the initial workspace. Wiring, skill generation, and handoff happen at the close of Arc 5 once the user identity map is known.

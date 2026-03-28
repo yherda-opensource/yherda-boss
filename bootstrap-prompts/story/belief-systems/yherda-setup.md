@@ -21,8 +21,8 @@ The beliefs required to reason about setting up a Yherda Boss workspace correctl
 ### 1. Three workspaces, one user
 Every Yherda Boss setup produces three workspaces:
 - **baseline/** — honest retro'd snapshot of where the user was; beliefs at their true status; permanent fallback
-- **{name}-yherda-boss-initial/** — where they actually are after reconciling existing habits with agile and yherda beliefs; carries real adaptations and compromises; the working context
-- **{name}-yherda-boss-ideal/** — the clean version; what the belief architecture looks like without accumulated workarounds; generated from the same retro but without carrying strained adaptations forward
+- **~/.claude/yherda/{name}-initial/** — where they actually are after reconciling existing habits with agile and yherda beliefs; carries real adaptations and compromises; the working context
+- **~/.claude/yherda/{name}-ideal/** — the clean version; what the belief architecture looks like without accumulated workarounds; generated from the same retro but without carrying strained adaptations forward
 
 ### 2. Baseline is permanent, not transitional
 Baseline is not a migration artifact. It is the honest snapshot of the user's belief state before Yherda Boss. It stays frozen at the retro moment — a reference point, not an active workspace. The fallback for context outside any defined domain.
@@ -41,8 +41,8 @@ Over time the initial workspace either converges toward the ideal through retros
 ### 6. The CLAUDE.md shim is the workspace selector
 A pointer at the top of CLAUDE.md determines which workspace is active. Swapping the pointer switches context. Multiple workspaces (personal, company, project) can coexist — only one is active per session.
 
-### 7. Foundation belief systems load at workspace creation
-When initial and ideal workspaces are created at the Arc 1/Arc 2 boundary, yherda-model and agile-os are imported as foundation belief systems before any other arc begins. All subsequent beliefs build on this foundation.
+### 7. Full belief system packages install at workspace creation
+When initial and ideal workspaces are created, the full `belief-systems/yherda/` and `belief-systems/agile/` packages are copied in. The workspace `CLAUDE.md` indexes all of them so Claude orients correctly on startup without hunting. All subsequent domain beliefs build on this foundation.
 
 ### 8. The workspace boundary is a belief transition
 The move from baseline to initial/ideal is not administrative — it is the moment the user transitions from "I have config" to "I have a belief architecture." The Arc 1/Arc 2 boundary is load-bearing.
