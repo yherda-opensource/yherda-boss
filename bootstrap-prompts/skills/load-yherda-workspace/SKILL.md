@@ -1,0 +1,84 @@
+# Skill — /load-yherda-workspace
+
+Load a Yherda Boss workspace as the active context for this session.
+
+---
+
+## When to invoke
+
+Invoke this skill at the start of any session where you want to work within a Yherda belief architecture. If no workspace is active, you are working without a belief model — invoke this first.
+
+---
+
+## What this skill does
+
+1. List all available workspaces under `~/.claude/yherda/`
+2. Present the list to the user
+3. User selects a workspace
+4. Read the selected workspace's `CLAUDE.md` and load it as active context
+5. Confirm which workspace is now active and what it contains
+
+---
+
+## Execution
+
+**Step 1 — List workspaces**
+
+Read the contents of `~/.claude/yherda/`. Each subdirectory is a workspace. Present them:
+
+> "Available workspaces:
+>
+> {N}. {workspace-name} — {one-line description from workspace CLAUDE.md if available}
+> ...
+>
+> Which workspace do you want to load?"
+
+If no workspaces found:
+> "No Yherda workspaces found at ~/.claude/yherda/. Run the Yherda Boss bootstrap to create one."
+Stop here.
+
+**Step 2 — Load selected workspace**
+
+Read `~/.claude/yherda/{selected}/CLAUDE.md`. This file is the AEO-ready index for the workspace — belief systems, characters, active arcs, task store, skills.
+
+Confirm:
+> "Loaded: {workspace-name}
+>
+> Belief systems: {count} ({list names})
+> Characters: {agent identities} | {user identities}
+> Active arcs: {list}
+> Skills: {list invocation names}
+>
+> Ready. What would you like to work on?"
+
+---
+
+## Session hooks (optional setup)
+
+For automatic workspace prompting, add to `~/.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -f ~/.claude/yherda/.active || echo '{\"decision\": \"block\", \"reason\": \"No Yherda workspace loaded. Run /load-yherda-workspace to select one.\"}'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+This blocks tool use until a workspace is explicitly loaded. Remove the hook if you prefer to work without a workspace active.
+
+---
+
+## Workspace switching
+
+To switch workspaces mid-session, invoke `/load-yherda-workspace` again. The new workspace replaces the current active context.

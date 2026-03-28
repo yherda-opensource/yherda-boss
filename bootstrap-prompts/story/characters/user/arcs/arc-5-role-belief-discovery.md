@@ -142,7 +142,7 @@ Each skill is a lazy-loading expression: enough context to reason from the ident
 
 ---
 
-## Beat 5j — Wire CLAUDE.md
+## Beat 5j — Create Workspace CLAUDE.md Files
 *Active identity: [[../../agent/identities/installer]]*
 
 Create `CLAUDE.md` in each workspace root (`~/.claude/yherda/{name}-initial/` and `{name}-ideal/`). Use the workspace-claude template. Fill in:
@@ -150,19 +150,12 @@ Create `CLAUDE.md` in each workspace root (`~/.claude/yherda/{name}-initial/` an
 - Domain belief systems created during Arcs 2–5
 - Domain skills generated in Beat 5i
 
-Then update the global `~/.claude/CLAUDE.md`:
-1. Back up existing file to `~/.claude/CLAUDE.md.backup`
-2. Add workspace shim at the top:
+Also install the `/load-yherda-workspace` skill into `~/.claude/skills/load-yherda-workspace/SKILL.md` from `bootstrap-prompts/skills/load-yherda-workspace/SKILL.md`.
 
-```
-# Yherda Workspace
-See ~/.claude/yherda/{name}-initial/CLAUDE.md for working context.
-```
-
-Everything else in the global CLAUDE.md stays intact below the shim.
+Do not modify the user's global `~/.claude/CLAUDE.md`. Workspace loading is deliberate — the user invokes `/load-yherda-workspace` to select and activate a workspace at the start of a session.
 
 **Belief transitions:**
-- *"Claude will load the right context on startup"* — introduced as `active`
+- *"Each workspace has an AEO-ready index Claude can load on demand"* — introduced as `active`
 
 ---
 
@@ -174,9 +167,9 @@ Everything else in the global CLAUDE.md stays intact below the shim.
 > **~/.claude/yherda/{name}-initial/** — your working context; agile beliefs, your domain belief systems, ceremonies wired to your identities, skills ready to invoke
 > **~/.claude/yherda/{name}-ideal/** — the clean version; same structure, no inherited friction
 >
-> Your global CLAUDE.md now points here. In any new session, Claude will orient from your workspace automatically.
+> To load a workspace at the start of any session: invoke `/load-yherda-workspace`. It will list your available workspaces and load the one you choose.
 >
-> To start: invoke `/scrum-master` for a standup or `/agile-consultant` for planning. Retro is how the model improves — the retro log is at `retro_log.md`.
+> To start now: invoke `/scrum-master` for a standup or `/agile-consultant` for planning. Retro is how the model improves — the retro log is at `retro_log.md`.
 >
 > Bootstrap complete."
 

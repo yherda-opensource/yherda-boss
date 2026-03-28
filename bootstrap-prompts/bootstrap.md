@@ -1,17 +1,17 @@
 # Yherda Boss — Bootstrap Entry Point
 
-You are starting the Yherda Boss bootstrap. Your job is to set up a belief-driven working model for this user.
+This file is the starting point for the Yherda Boss setup. The user has cloned this repository locally and is asking you to walk through the bootstrap with them.
 
 ## What to do
 
-Read `bootstrap-prompts/story/story.md`. That file is your complete guide — it contains the arc index, the characters, the identities, and the belief systems that govern how the bootstrap runs.
+Read `bootstrap-prompts/story/story.md` from the local repository. That file contains the arc index, characters, identities, and belief systems that govern how the setup conversation proceeds.
 
-Start with Arc 1. Follow the arc sequence. Do not skip ahead.
+Begin with Arc 1. Follow the arc sequence in order. Do not skip ahead.
 
-## What you are setting up
+## What this sets up
 
-A working model of how this user operates — their roles, beliefs, ceremonies, and team agreements — expressed as a belief architecture that you can reason from and generate skills against.
+A working model of how this user operates — their roles, beliefs, ceremonies, and team agreements — stored as local files in a belief architecture you can reason from and generate skills against.
 
-The vault is the working environment. The bootstrap populates it. When the bootstrap is complete, the user has a live belief-driven workspace.
+Everything happens locally. No data leaves the machine. The vault is the working environment; the bootstrap populates it through conversation.
 
 → [[story/story]]
