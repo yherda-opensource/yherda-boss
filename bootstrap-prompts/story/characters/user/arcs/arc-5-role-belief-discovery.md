@@ -152,10 +152,44 @@ Create `CLAUDE.md` in each workspace root (`~/.claude/yherda/{name}-initial/` an
 
 Also install the `/load-yherda-workspace` skill into `~/.claude/skills/load-yherda-workspace/SKILL.md` from `bootstrap-prompts/skills/load-yherda-workspace/SKILL.md`.
 
-Do not modify the user's global `~/.claude/CLAUDE.md`. Workspace loading is deliberate — the user invokes `/load-yherda-workspace` to select and activate a workspace at the start of a session.
+Install the workspace session hook:
+
+1. Create `~/.claude/hooks/require-yherda-workspace.sh`:
+
+```bash
+#!/bin/bash
+if [ ! -f "$HOME/.claude/yherda/.active" ]; then
+  jq -n '{
+    hookSpecificOutput: {
+      hookEventName: "PreToolUse",
+      permissionDecision: "deny",
+      permissionDecisionReason: "No Yherda workspace loaded. Run /load-yherda-workspace to select one."
+    }
+  }'
+fi
+```
+
+2. Make it executable: `chmod +x ~/.claude/hooks/require-yherda-workspace.sh`
+
+3. Add to `~/.claude/settings.json` under `hooks.PreToolUse`:
+
+```json
+{
+  "matcher": ".*",
+  "hooks": [
+    {
+      "type": "command",
+      "command": "$HOME/.claude/hooks/require-yherda-workspace.sh"
+    }
+  ]
+}
+```
+
+Do not modify the user's global `~/.claude/CLAUDE.md`. Workspace loading is deliberate — the session hook will prompt the user on the next `/clear` or fresh session.
 
 **Belief transitions:**
 - *"Each workspace has an AEO-ready index Claude can load on demand"* — introduced as `active`
+- *"Claude will prompt for workspace selection at the start of each session"* — introduced as `active`
 
 ---
 
@@ -167,7 +201,7 @@ Do not modify the user's global `~/.claude/CLAUDE.md`. Workspace loading is deli
 > **~/.claude/yherda/{name}-initial/** — your working context; agile beliefs, your domain belief systems, ceremonies wired to your identities, skills ready to invoke
 > **~/.claude/yherda/{name}-ideal/** — the clean version; same structure, no inherited friction
 >
-> To load a workspace at the start of any session: invoke `/load-yherda-workspace`. It will list your available workspaces and load the one you choose.
+> A session hook is now active. After you run `/clear`, any new session will require a workspace to be loaded before proceeding. Run `/load-yherda-workspace` to select one.
 >
 > To start now: invoke `/scrum-master` for a standup or `/agile-consultant` for planning. Retro is how the model improves — the retro log is at `retro_log.md`.
 >

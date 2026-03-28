@@ -41,6 +41,8 @@ Stop here.
 
 Read `~/.claude/yherda/{selected}/CLAUDE.md`. This file is the AEO-ready index for the workspace — belief systems, characters, active arcs, task store, skills.
 
+Write `~/.claude/yherda/.active` with the selected workspace name. This satisfies the session hook so tool use proceeds normally.
+
 Confirm:
 > "Loaded: {workspace-name}
 >
@@ -67,29 +69,17 @@ The workspace model exists so that reasoning stays grounded in what this user ac
 
 ---
 
-## Session hooks (optional setup)
+## Session hook
 
-For automatic workspace prompting, add to `~/.claude/settings.json`:
+The bootstrap installs a PreToolUse hook that blocks tool use until a workspace is loaded. It checks for `~/.claude/yherda/.active` — a marker file the workspace loader writes on activation.
 
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": ".*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "test -f ~/.claude/yherda/.active || echo '{\"decision\": \"block\", \"reason\": \"No Yherda workspace loaded. Run /load-yherda-workspace to select one.\"}'"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+The hook script lives at `~/.claude/hooks/require-yherda-workspace.sh`. It is registered in `~/.claude/settings.json` during bootstrap.
 
-This blocks tool use until a workspace is explicitly loaded. Remove the hook if you prefer to work without a workspace active.
+To disable: remove the hook entry from `~/.claude/settings.json`.
+
+**On workspace load**, this skill writes `~/.claude/yherda/.active` with the selected workspace name so the hook passes.
+
+**On `/clear`**, the marker is not automatically removed — the hook will not re-block mid-session. To enforce re-selection on the next session, the marker can be removed manually or via a SessionStart hook if desired.
 
 ---
 
