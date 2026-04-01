@@ -64,6 +64,9 @@ fi
 
 Plain text output or non-zero exit codes do not produce a block. Hook scripts are registered in `~/.claude/settings.json` under `hooks.PreToolUse` as `{"matcher": "{regex}", "hooks": [{"type": "command", "command": "{path}"}]}`. Use `$HOME` not `~` in the command path.
 
+### 10. Agent-consumed artifacts are optimized for selective loading
+When writing files for agent use, prefer many small, focused files over fewer large ones. A file that contains more than one coherent unit of context defeats lazy loading — the agent must load everything to use anything. Small files compose; large files force all-or-nothing context acquisition. This applies to belief files, workspace artifacts, memory, and any other file the agent will load as context.
+
 ---
 
 ## Builds On
