@@ -67,6 +67,9 @@ Plain text output or non-zero exit codes do not produce a block. Hook scripts ar
 ### 10. Agent-consumed artifacts are optimized for selective loading
 When writing files for agent use, prefer many small, focused files over fewer large ones. A file that contains more than one coherent unit of context defeats lazy loading — the agent must load everything to use anything. Small files compose; large files force all-or-nothing context acquisition. This applies to belief files, workspace artifacts, memory, and any other file the agent will load as context.
 
+### 11. "Belief context" is the unified term for what a role loads
+The belief systems assigned to a role are its belief context. This term is intentional — it aligns with conversational context (what a Claude session loads) and with the Yherda UI concept of context (what an identity holds). The same word is the right word because the concept is genuinely the same thing at different levels. A role's belief context is its working memory; a session's context is the agent's working memory. Loading a belief context for a role is the same operation as loading context into a session.
+
 ---
 
 ## Builds On
