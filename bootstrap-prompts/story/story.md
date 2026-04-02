@@ -9,8 +9,8 @@ A story about constructing a belief-driven workspace. When the final arc complet
 
 ## Characters
 
-- [[characters/agent/agent]] — the compression layer; yherda-consultant, agile-consultant, installer, skill-generator identities
-- [[characters/user/user]] — the person being onboarded; yherder, groundwork, coordinator, analyst identities
+- [[characters/agent/agent]] — the compression layer; director, technical-architect, agile-consultant, installer, thinking-partner, skill-generator identities
+- [[characters/user/user]] — the person being onboarded; developer, product-architect, devops, product-thinker, category-designer, story-architect, founder identities
 
 ## Belief Systems
 
@@ -21,7 +21,7 @@ A story about constructing a belief-driven workspace. When the final arc complet
 ## Arcs
 
 **Agent-owned:**
-1. [[characters/agent/arcs/arc-1-baseline-retro]] — retro on existing config; serialize baseline; create initial and ideal workspaces
+1. [[characters/agent/arcs/arc-1-baseline-retro]] — retro on existing config; git init ~/.claude; serialize baseline; create initial and ideal workspaces
 6. [[characters/agent/arcs/arc-6-yherda-migration]] — transfer workspace to Yherda with fidelity validation
 
 **User-owned:**
