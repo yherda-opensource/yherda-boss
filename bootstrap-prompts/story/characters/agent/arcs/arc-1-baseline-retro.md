@@ -52,6 +52,39 @@ User responds — promoted beliefs carry forward into the workspace retro; proje
 
 ---
 
+## Beat 1a3 — Git Init ~/.claude
+*Active identity: [[../identities/installer]]*
+
+Before writing any workspace files, verify that `~/.claude` is under version control:
+
+```bash
+git -C ~/.claude rev-parse --is-inside-work-tree 2>/dev/null
+```
+
+If already a git repo: confirm recent commits exist. Suggest committing current state before proceeding.
+
+If not a git repo: recommend initializing now.
+
+> "Before we write anything, let's make sure you can always get back to where you are now. Your ~/.claude directory holds your skills, config, memory, and everything we're about to build. A git repo here means any experiment is reversible."
+
+Create a sensible `.gitignore` excluding ephemeral files (sessions, cache, history, debug, telemetry). Make an initial commit.
+
+This beat applies to all users. Even if already git-initialized, a fresh commit before bootstrap begins is always warranted.
+
+**Workspace testing flow** (document for user):
+- Commit current state on main
+- Branch for workspace test
+- Rename `CLAUDE.md` on test branch
+- Open Claude Code from a fresh directory
+- Invoke `/load-workspace`
+- Test freely — `git checkout main` restores everything
+- Cutover = workspace branch becomes new main
+
+**Belief transitions:**
+- *"My Claude config is protected and reversible"* — introduced as `active` on commit
+
+---
+
 ## Beat 1b — Present for Retro
 *Active identity: [[../identities/installer]]*
 
@@ -90,7 +123,9 @@ User reviews each belief candidate and assigns honest status. Agent updates in r
 ## Beat 1d — Serialize Baseline
 *Active identity: [[../identities/installer]]*
 
-Store the retro'd belief list as **baseline/** workspace. Group beliefs by theme. Record honest status for each. Note source.
+Store the retro'd belief list as **baseline/** workspace. Write one file per theme group — not one bundled file. Each file contains the beliefs for that theme, their status, and source. Optimized for selective loading.
+
+Suggested groupings: work-process, agent-behavior, code-quality, philosophy, and any domain-specific themes that emerged. Add groupings as needed — don't force beliefs into ill-fitting categories.
 
 Baseline is now frozen — a reference point, not an active workspace.
 
@@ -171,15 +206,18 @@ User responds with any exceptions or modifications. Uncontested beliefs arrive a
 
 Create an agent character in both workspaces using the agile character template. Install two identities:
 
-**Scrum Master** — ceremony orchestrator and belief guardian
-- Belief systems: agile-processes, agile-workflow, agile-os
-- Owner of: standup arc, retro arc
+**Director** — orchestrator; holds the shot list, calls action, waits at human gates
+- Belief contexts: agile-processes, agile-workflow, agile-os
+- Owner of: meta-arc (director shot list)
+- Never executes beats — knows the sequence and whose turn it is
+- Artifact: shot list (meta-arc); not a skill
 
 **Agile Consultant** — planning and delivery advisor
-- Belief systems: agile-processes, agile-workflow, agile-os, agile-manifesto
-- Owner of: planning arc, grooming arc, review arc
+- Belief contexts: agile-processes, agile-workflow, agile-os, agile-manifesto
+- Owner of: planning arc, grooming arc, retro arc
+- Ceremonies are event-driven (planning, grooming) or daily (retro) — not sprint-scheduled
 
-Copy all process arcs from `belief-systems/agile/processes/` into `characters/agent/arcs/` in each workspace.
+Copy active ceremony arcs from `belief-systems/agile/processes/` into `characters/agent/arcs/` in each workspace. Active arcs: planning, grooming, retro. Standup and review are optional — include only if user confirmed them in Arc 3.
 
 **Belief transitions:**
 - *"The agent has the identities needed to run ceremonies"* — introduced as `active`
